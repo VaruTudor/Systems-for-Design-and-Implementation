@@ -1,0 +1,39 @@
+<h2>Gun Types</h2>
+<ol class="list-group">
+  <li *ngFor="let gunType of gunTypes"
+      [class.selected]="gunType === selectedGunType"
+      (click)="onSelectGunType(gunType)"
+      class="list-group-item list-group-item-dark">
+    {{gunType.name}} [{{gunType.category}}]
+  </li>
+</ol>
+
+<div class="setMargins">
+  <label class="badge badge-pill badge-secondary setMargins">Name<input #nameInput required class="setMargins"></label><br>
+  <label class="badge badge-pill badge-secondary setMargins">Category<input #categoryInput required class="setMargins"></label><br>
+</div>
+
+<!--<div class="setMargins">-->
+<!--  <select [(ngModel)]="selectedGunProvider" (ngModelChange)="onSelect()" id="selectId" class="btn btn-secondary dropdown-toggle">-->
+<!--    <option *ngFor="let eachGunProvider of gunProviders"-->
+<!--            [value]="eachGunProvider" >{{eachGunProvider.name}}</option>-->
+<!--  </select>-->
+<!--</div>-->
+
+<ol class="list-group">
+  <li *ngFor="let gunProvider of gunProviders"
+      [class.selected]="gunProvider === selectedGunProvider"
+      (click)="onSelect(gunProvider)"
+      class="list-group-item list-group-item-dark">
+    {{gunProvider.name}}
+  </li>
+</ol>
+
+<div class="setMargins">
+  <button (click)="saveGunType(nameInput.value, categoryInput.value)"
+          class="setMargins btn btn-dark"
+  >Save</button>
+  <button (click)="deleteGunType()"
+          class="setMargins btn btn-dark"
+  >Delete</button>
+</div>

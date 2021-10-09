@@ -1,0 +1,12 @@
+<h2>New Client</h2>
+
+<div>
+  <label class="badge badge-pill badge-secondary setMargins">Name<input #nameInput required class="setMargins"></label><br>
+  <label class="badge badge-pill badge-secondary setMargins">Date<input #dateInput required class="setMargins"></label><br>
+  <button (click)="saveClient(nameInput.value, toDate(dateInput.value))"
+          class="setMargins btn btn-dark"
+  >Save</button>
+  <button (click)="goBack()"
+          class="setMargins btn btn-dark"
+  >Back</button>
+</div>

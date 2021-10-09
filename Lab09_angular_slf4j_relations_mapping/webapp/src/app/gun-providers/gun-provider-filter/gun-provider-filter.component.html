@@ -1,0 +1,29 @@
+<form [formGroup]="myForm">
+  <hr>
+  <mat-form-field class="form-group">
+    <input matInput formControlName="lowerBound">
+    <div class="alert alert-danger"
+           *ngIf="myForm.get('lowerBound').invalid"
+    >Number must be in [0, 10]</div>
+  </mat-form-field><hr>
+
+  <mat-form-field class="form-group">
+    <input matInput formControlName="upperBound">
+    <div class="alert alert-danger"
+         *ngIf="myForm.get('upperBound').invalid"
+    >Number must be in [0, 10]</div>
+  </mat-form-field><hr>
+
+  <button (click)="goBack()"
+          class="setMargins btn btn-dark"
+  >Back</button>
+</form>
+
+<ol class="list-group">
+  <li *ngFor="let gunProvider of filteredGunProviders"
+      class="list-group-item list-group-item-dark">
+    {{gunProvider.name}} [{{gunProvider.reputation}}]
+  </li>
+</ol>
+
+

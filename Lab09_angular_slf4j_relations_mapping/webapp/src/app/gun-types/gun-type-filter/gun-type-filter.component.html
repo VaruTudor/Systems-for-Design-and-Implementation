@@ -1,0 +1,29 @@
+<h2>Filter GunTypes</h2>
+<!--using template form-->
+<div>
+  <form #myNgFormReference="ngForm"
+      (ngSubmit)="filter()">
+    <div class="form-group">
+      <label>Category {{currentCategory}}</label>
+      <input type="text" class="form-control" required placeholder="Category..."
+      name="category" [(ngModel)]="currentCategory">
+<!--      must have name and ngModel(above)-->
+    </div>
+    <button (click)="goBack()"
+            class="setMargins btn btn-dark"
+    >Back</button>
+    <button type="submit"
+            class="setMargins btn btn-dark"
+            [disabled]="myNgFormReference.invalid"
+    >Filter</button>
+  </form>
+
+  <div [hidden]="myNgFormReference.valid || myNgFormReference.untouched" class="alert alert-danger">input is required</div>
+</div>
+
+<ol class="list-group">
+  <li *ngFor="let gunType of filteredGunTypes"
+      class="list-group-item list-group-item-dark">
+    {{gunType.name}}
+  </li>
+</ol>

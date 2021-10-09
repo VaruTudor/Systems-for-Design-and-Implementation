@@ -1,0 +1,9 @@
+<h2>Clients</h2>
+<ol class="list-group">
+  <li *ngFor="let client of clients"
+      [class.selected]="client === selectedClient"
+      (click)="onSelect(client)"
+      class="list-group-item list-group-item-dark">
+    {{client.name}}
+  </li>
+</ol>

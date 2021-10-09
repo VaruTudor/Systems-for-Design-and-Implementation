@@ -1,0 +1,28 @@
+<h2>Delete Client</h2>
+
+<form [formGroup]="myForm">
+  <hr>
+  <mat-form-field class="form-group">
+    <input matInput formControlName="name">
+    <div class="alert alert-danger"
+         *ngIf="myForm.get('name').invalid"
+    >no input</div>
+  </mat-form-field><hr>
+
+  <button (click)="goBack()"
+          class="setMargins btn btn-dark"
+  >Back</button>
+  <button (click)="deleteClient()"
+          class="setMargins btn btn-dark"
+  >Delete
+  </button>
+</form>
+
+<ol class="list-group">
+  <li *ngFor="let client of clientsWithName"
+      [class.selected]="client === selectedClient"
+      (click)="onSelect(client)"
+      class="list-group-item list-group-item-dark">
+    {{client.name}}
+  </li>
+</ol>
